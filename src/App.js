@@ -11,6 +11,8 @@ import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
 function App() {
+  let api = `https://rickandmortyapi.com/api/character/?page=1`;
+
   return (
     <div className="App">
       <h1 className="text-center mb-3">Characters</h1>

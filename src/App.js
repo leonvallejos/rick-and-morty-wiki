@@ -1,6 +1,5 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/css/bootstrap";
 import React, { useState, useEffect } from "react";
 
 // Components
@@ -11,7 +10,16 @@ import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
 function App() {
+  const [fetchedData, updateFetchedData] = useState([]);
+
   let api = `https://rickandmortyapi.com/api/character/?page=1`;
+
+  useEffect(() => {
+    (async function () {
+      let data = await fetch(api).then((res) => res.json());
+      console.log(data);
+    })();
+  }, [api]); // Escucha cambios en api todo el tiempo
 
   return (
     <div className="App">

@@ -18,6 +18,33 @@ const Card = ({ results }) => {
             <div className={`${styles.content}`}>
               <div className="fs-5 fw-bold mb-4">{name}</div>
               <div className="">
+                {(() => {
+                  if (status === "Dead") {
+                    return (
+                      <div
+                        className={`${styles.badge} position-absolute badge bg-danger`}
+                      >
+                        {status}
+                      </div>
+                    );
+                  } else if (status === "Alive") {
+                    return (
+                      <div
+                        className={`${styles.badge} position-absolute badge bg-success`}
+                      >
+                        {status}
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        className={`${styles.badge} position-absolute badge bg-secondary`}
+                      >
+                        {status}
+                      </div>
+                    );
+                  }
+                })()}
                 <div className="fs-6 fw-normal">Last Location</div>
                 <div className="fs-5">{location.name}</div>
               </div>

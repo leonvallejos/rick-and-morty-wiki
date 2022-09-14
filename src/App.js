@@ -2,7 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 
-// Components
+// Componentes
 import Card from "./components/Card/Card";
 import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
@@ -10,6 +10,10 @@ import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
 function App() {
+  // Guardar numero de pagina y palabras para busqueda
+  let [pageNumber, updatePageNumber] = useState(1);
+  let [search, setSearch] = useState("");
+
   const [fetchedData, updateFetchedData] = useState([]);
 
   // de la data saco info, y los personajes

@@ -12,12 +12,15 @@ import Search from "./components/Search/Search";
 function App() {
   const [fetchedData, updateFetchedData] = useState([]);
 
+  // de la data saco info, y los personajes
+  const { info, results } = fetchedData;
+
   let api = `https://rickandmortyapi.com/api/character/?page=1`;
 
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
-      console.log(data);
+      updateFetchedData(data); // seteo la data a fetchedData
     })();
   }, [api]); // Escucha cambios en api todo el tiempo
 
@@ -28,7 +31,9 @@ function App() {
         <div className="row">
           Filter component will be placed here
           <div className="col-lg-8 col-12">
-            <div className="row">Card component will be placed here</div>
+            <div className="row">
+              <Card results={results} />
+            </div>
           </div>
         </div>
       </div>

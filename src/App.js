@@ -39,6 +39,11 @@ function App() {
             <div className="row">
               <Card results={results} />
             </div>
+            <Pagination
+              info={info}
+              pageNumber={pageNumber}
+              updatePageNumber={updatePageNumber}
+            />
           </div>
         </div>
       </div>
